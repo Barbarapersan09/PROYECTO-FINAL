@@ -362,8 +362,8 @@ $num=mysqli_num_rows($rt);
 
 									<div class="col-sm-6">
 										<div class="price-box">
-											<span class="price">$. <?php echo htmlentities($row['productPrice']);?></span>
-											<span class="price-strike">$.<?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
+											<span class="price">€. <?php echo htmlentities($row['productPrice']);?></span>
+											<span class="price-strike">€.<?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
 										</div>
 									</div>
 
@@ -604,8 +604,8 @@ while($rw=mysqli_fetch_array($qry))
 
 			<div class="product-price">	
 				<span class="price">
-					$.<?php echo htmlentities($rw['productPrice']);?>			</span>
-										     <span class="price-before-discount">$.
+					€.<?php echo htmlentities($rw['productPrice']);?>			</span>
+										     <span class="price-before-discount">€.
 										     <?php echo htmlentities($rw['productPriceBeforeDiscount']);?></span>
 									
 			</div><!-- /.product-price -->

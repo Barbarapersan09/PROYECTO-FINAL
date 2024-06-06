@@ -158,13 +158,20 @@ INSERT INTO `productreviews` (`id`, `productId`, `quality`, `price`, `value`, `n
 (5, 15, 5, 5, 5, 'asfdsdf', 'sfdf', 'sdsdgd', '2021-07-27 19:55:40');
 
 -- --------------------------------------------------------
+-- Crear tabla autores
+CREATE TABLE `autores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `biografia` longtext DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Estructura de tabla para la tabla `products`
 --
-
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` int(11) NOT NULL,
   `subCategory` int(11) DEFAULT NULL,
   `productName` varchar(255) DEFAULT NULL,
@@ -178,8 +185,14 @@ CREATE TABLE `products` (
   `shippingCharge` int(11) DEFAULT NULL,
   `productAvailability` varchar(255) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
-  `updationDate` varchar(255) DEFAULT NULL
+  `updationDate` varchar(255) DEFAULT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `autores` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 --
 -- Volcado de datos para la tabla `products`
@@ -379,7 +392,7 @@ ALTER TABLE `productreviews`
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `subcategory`
